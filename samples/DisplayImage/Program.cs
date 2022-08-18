@@ -55,8 +55,7 @@ static byte[] LoadImageBytes<T>(string filename, RawFrameBuffer fb) where T : un
     // Load from source
     using(Image loadedImage = Image.Load(filename)) {
         // Resize to fit screen
-        loadedImage.Mutate(x =>
-        {
+        loadedImage.Mutate(x => {            
             x.Resize(fb.PixelWidth, fb.PixelHeight);            
         });
 
