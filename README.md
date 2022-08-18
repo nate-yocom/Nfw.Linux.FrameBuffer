@@ -62,7 +62,9 @@ More useful is converting from whatever the image format is on disk, to the fram
 ## Notes
 
 - The RawFrameBuffer constructor can optionally be told NOT to probe via ioctl on construction, instead post-construction you must call ```RefreshDeviceInfo()``` before you can render anything.
+- The RawFrameBuffer constructor can also be optionally provided an ```ILogger```, perhaps via IoC, for logging/diagnostics.
 - In the case where your FB device can be mirrored, I suggest writing to the fastest (i.e. /dev/fb0 is often HW accelerated) then mirroring via something like the [raspi2fb](https://github.com/AndrewFromMelbourne/raspi2fb) tool to effectively 'double buffer'.
+
 
 ## References
 - https://en.wikipedia.org/wiki/Linux_framebuffer
