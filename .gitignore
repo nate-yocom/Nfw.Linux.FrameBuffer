@@ -25,3 +25,4 @@ msbuild.log
 msbuild.err
 msbuild.wrn
 .vs/
+*.pdb
