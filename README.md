@@ -37,7 +37,7 @@ using(RawFrameBuffer fb = new RawFrameBuffer("/dev/fb0")) {
 
 ## Samples: Displaying an Image
 
-This snippet uses the fantastic (ImageSharp)[https://docs.sixlabors.com/articles/imagesharp/index.html?tabs=tabid-1] library to load an image, which must be in the same bitdepth as the framebuffer, then write it to the framebuffer:
+This snippet uses the fantastic [ImageSharp](https://docs.sixlabors.com/articles/imagesharp/index.html?tabs=tabid-1) library to load an image, which must be in the same bitdepth as the framebuffer, then write it to the framebuffer:
 
 ```csharp
 using(RawFrameBuffer fb = new RawFrameBuffer("/dev/fb0")) {                
@@ -57,7 +57,7 @@ using(RawFrameBuffer fb = new RawFrameBuffer("/dev/fb0")) {
 }
 ```
 
-More useful is converting from whatever the image format is on disk, to the framebuffer's format, see the [DisplayImage](https://github.com/nate-yocom/Nfw.Linux.FrameBuffer/tree/main/samples/DisplayImage) Sample - which uses (ImageSharp)[https://docs.sixlabors.com/articles/imagesharp/index.html?tabs=tabid-1] AND convert the image to the same pixel format as the display before writing the pixel data itself to the framebuffer. 
+More useful is converting from whatever the image format is on disk, to the framebuffer's format, see the [DisplayImage](https://github.com/nate-yocom/Nfw.Linux.FrameBuffer/tree/main/samples/DisplayImage) Sample - which uses [ImageSharp](https://docs.sixlabors.com/articles/imagesharp/index.html?tabs=tabid-1) AND convert the image to the same pixel format as the display before writing the pixel data itself to the framebuffer. 
 
 ## Notes
 
