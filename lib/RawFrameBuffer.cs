@@ -61,6 +61,24 @@ namespace Nfw.Linux.FrameBuffer {
             }
         }
 
+        public void Blank()
+        {
+            IoctlBlanking(FB_BLANK_POWERDOWN);
+        }
+
+        public void UnBlank()
+        {
+            IoctlBlanking(FB_BLANK_UNBLANK);            
+        }
+
+        private void IoctlBlanking(int arg)
+        {
+            EnsureOpenStream();
+            if(ioctl(_fbMmFile!.SafeMemoryMappedFileHandle.DangerousGetHandle().ToInt32(), FBIOBLANK, arg) < 0) {
+                _logger?.LogError($"Blanking ioctl({FBIOBLANK}) arg({arg}) error: {System.Runtime.InteropServices.Marshal.ReadInt32(__errno_location())}");
+            }
+        }
+
         public void Clear() {
             byte[] emptyData = new byte[PixelWidth * PixelHeight * (PixelDepth / 8)];
             WriteRaw(emptyData);
@@ -135,12 +153,20 @@ namespace Nfw.Linux.FrameBuffer {
 
         [DllImport("libc", EntryPoint = "ioctl", SetLastError = true)]
         private static extern int ioctl(int handle, uint request, ref fb_fix_screeninfo capability);
+
+        [DllImport("libc", EntryPoint = "ioctl", SetLastError = true)]
+        private static extern int ioctl(int handle, uint request, int arg);
+        
         
         [DllImport("libc", EntryPoint = "__errno_location")]
         private static extern System.IntPtr __errno_location();
 
         private const int FBIOGET_FSCREENINFO = 0x4602;
         private const int FBIOGET_VSCREENINFO = 0x4600;
+        private const int FBIOBLANK = 0x4611;
+        private const int FB_BLANK_UNBLANK= 0x0;
+        private const int FB_BLANK_POWERDOWN = 0x4;
+
                         
         ~RawFrameBuffer() {
             Dispose(false);
