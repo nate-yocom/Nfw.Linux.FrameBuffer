@@ -63,7 +63,17 @@ namespace Nfw.Linux.FrameBuffer {
 
         public void Blank()
         {
-            IoctlBlanking(FB_BLANK_POWERDOWN);
+            Blank(FB_BLANK_NORMAL);
+        }
+
+        public void PowerDown()
+        {
+            Blank(FB_BLANK_POWERDOWN);
+        }
+
+        public void Blank(byte value)
+        {
+            IoctlBlanking(value);
         }
 
         public void UnBlank()
@@ -165,6 +175,7 @@ namespace Nfw.Linux.FrameBuffer {
         private const int FBIOGET_VSCREENINFO = 0x4600;
         private const int FBIOBLANK = 0x4611;
         private const int FB_BLANK_UNBLANK= 0x0;
+        private const int FB_BLANK_NORMAL = 0x01;
         private const int FB_BLANK_POWERDOWN = 0x4;
 
                         

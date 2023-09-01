@@ -15,13 +15,14 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>    
     <PackageIcon>computer-monitor.png</PackageIcon>
     <PackageTags>Linux Framebuffer /dev/fbX image render framebuffer fb</PackageTags>
-    <PackageVersion>1.0.2</PackageVersion>
+    <PackageVersion>1.0.3</PackageVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageProjectUrl>https://github.com/nate-yocom/Nfw.Linux.FrameBuffer</PackageProjectUrl>
     <RepositoryUrl>https://github.com/nate-yocom/Nfw.Linux.FrameBuffer.git</RepositoryUrl>    
     <RepositoryType>git</RepositoryType>    
     <Description>An easy to use library for interacting with the Linux framebuffer interface (/dev/fbX)</Description>
     <Configurations>Debug;Release</Configurations>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>

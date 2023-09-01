@@ -76,3 +76,10 @@ More useful is converting from whatever the image format is on disk, to the fram
 ## IMAGE LICENSE
 
 The [Sample Image](https://github.com/nate-yocom/Nfw.Linux.FrameBuffer/blob/main/samples/DisplayImage/images/fall-leaf-keyocom.jpg) used is an original watercolor by the author's wife: Katie Yocom.  License for this file is [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/).
+
+## Changelog
+
+- 1.0.3:
+  - Blank() now defaults to FB_BLANK_NORMAL
+  - PowerDown() was added for previous behavior
+  - Also exposes a Blank(byte) which takes arbitrary ioctl value.
